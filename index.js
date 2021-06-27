@@ -127,7 +127,7 @@ Client.on("message", message => {
             .setTitle('Support Mastr !')
             .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
             .setDescription('**💫 Voici les Commandes du Bot ! 💫**')
-            .addFields('**📢 Modérations 📢**', '/ban (pour bannir un membre)', '/kick (pour kick un membre)', '/clear (nombre entre 1 - 100)(pour supprimer des messages)', true)
+            .addField('**📢 Modérations 📢**', '/ban (pour bannir un membre)\n/kick (pour kick un membre)\n/clear (nombre entre 1 - 100)(pour supprimer des messages)', true)
             .setTimestamp()
             .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
 
