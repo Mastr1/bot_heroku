@@ -131,6 +131,4 @@ Client.on("message", message => {
     }
 });
 
-
-
 Client.login(process.env.token);
