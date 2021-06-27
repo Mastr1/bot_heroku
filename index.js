@@ -12,12 +12,12 @@ Client.on("ready", () => {
 
 Client.on("guildMemberAdd", member => {
     const embed = new Discord.MessageEmbed()
-    .setDescription("💎 **Bienvenue **" + member.user + " sur le discord de **Mastr** ! 💫")
-    .setFooter("***Nous sommes maintenant*** " + member.guild.memberCount + " 🖤")
-    .setColor("#FF0000")
-    .setImage("https://i.imgur.com/btqSTw7.png")
+    .setDescription('💎 **Bienvenue **' + member.user + ' sur le discord de **Mastr** ! 💫')
+    .setFooter('***Nous sommes maintenant*** ' + member.guild.memberCount + ' 🖤')
+    .setColor('#FF0000')
+    .setImage('https://i.imgur.com/btqSTw7.png')
     .setTimestamp()
-    member.guild.channels.get('857377306465271858').sendMessage(embed)
+    member.guild.channels.get('857377306465271858').send(embed)
 });
 
 Client.on("message", message => {
