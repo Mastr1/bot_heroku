@@ -131,4 +131,22 @@ Client.on("message", message => {
     }
 });
 
+Client.on("message", message => {
+    if(message.member.hasPermission("ADMINISTRATOR")){
+    if(message.content.startsWith(prefix + "live")){
+
+        const embed = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Stream de Mastr')
+            .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
+            .setDescription('**💫 Voici le Stream ! 💫**')
+            .addField('Lien du Live', 'https://www.twitch.tv/mastrontwitch', true)
+            .setTimestamp()
+            .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
+
+        message.channel.send(embed);
+    }
+    } 
+});
+
 Client.login(process.env.token);
