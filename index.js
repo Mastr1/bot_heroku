@@ -118,23 +118,7 @@ Client.on("message", message => {
     }
 });
 
-Client.on("message", message => {
-    if(message.author.bot) return;
-    if(message.content.startsWith(prefix + "cmds")){
-
-        const embed = new Discord.MessageEmbed()
-            .setColor('#FF0000')
-            .setTitle('Support Mastr !')
-            .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
-            .setDescription('**💫 Voici les Commandes du Bot ! 💫**')
-            .addField('**📢 Modérations 📢**', '/ban (pour bannir un membre)\n/kick (pour kick un membre)\n/clear (nombre entre 1 - 100)(pour supprimer des messages)', true)
-            .setTimestamp()
-            .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
-
-        message.channel.send(embed);
-    }
-});
-
+//live
 Client.on("message", message => {
     if(message.member.hasPermission("ADMINISTRATOR")){
     if(message.content.startsWith(prefix + "live")){
