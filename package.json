@@ -1,7 +1,7 @@
 {
   "name": "support",
   "description": "",
-  "version": "1.0.0",
+  "version": "",
   "engines": {
     "node": "14.15.4"
   },
