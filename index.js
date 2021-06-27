@@ -11,7 +11,7 @@ Client.on("ready", () => {
 });
 
 Client.on("guildMemberAdd", member => {
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed ()
     .setDescription('💎 **Bienvenue **' + member.user + ' sur le discord de **Mastr** ! 💫')
     .setFooter('***Nous sommes maintenant*** ' + member.guild.memberCount + ' 🖤')
     .setColor('#FF0000')
