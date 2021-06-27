@@ -10,7 +10,7 @@ Client.on("ready", () => {
     console.log("Bot Allumé !")
     Client.user.setStatus("dnd");
     setTimeout(() => {
-        Client.user.setActivity(".gg/ZBB8ZAWxh7 💨", {type: "STREAMING"});
+        Client.user.setActivity(".gg/ZBB8ZAWxh7 💨", {type: "WATCHING"});
     }, 100)
 });
 
