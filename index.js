@@ -11,7 +11,13 @@ Client.on("ready", () => {
 });
 
 Client.on("guildMemberAdd", member => {
-    member.guild.channels.cache.find(channel => channel.id === "857377306465271858").send(member.displayName + "** Bienvenue** sur le discord ! 💫\nNous somes actuellement **" + member.guild.memberCount + "** sur le Discord.");
+    let embed = new Discord.RichEmbed ()
+    .setDescription("💎 **Bienvenue **" + member.user + " sur le discord de **Mastr** ! 💫")
+    .setFooter("***Nous sommes maintenant*** " + member.guild.memberCount + " 🖤")
+    .setColor("#FF0000")
+    .setImage("https://i.imgur.com/btqSTw7.png")
+    .setTimestamp()
+    member.guild.channels.get('857377306465271858').sendMessage(embed)
 });
 
 Client.on("message", message => {
@@ -148,5 +154,7 @@ Client.on("message", message => {
     }
     } 
 });
+
+
 
 Client.login(process.env.token);
