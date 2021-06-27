@@ -120,7 +120,7 @@ Client.on("message", message => {
 
 Client.on("message", message => {
     if(message.author.bot) return;
-    if(message.content.startsWith(prefix + "stats")){
+    if(message.content.startsWith(prefix + "cmds")){
 
         const embed = new Discord.MessageEmbed()
             .setColor('#FF0000')
