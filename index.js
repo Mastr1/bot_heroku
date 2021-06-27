@@ -141,7 +141,6 @@ Client.on("message", message => {
             .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
             .setDescription('**💫 Voici le Stream ! 💫**')
             .addField('Lien du Live', 'https://www.twitch.tv/mastrontwitch', true)
-            .addField('@everyone', true)
             .setTimestamp()
             .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
 
