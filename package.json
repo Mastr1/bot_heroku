@@ -1,10 +1,8 @@
 {
-    "name": "mastr",
-    "version": "1.0.0",
+    "name": "support",
     "description": "",
-    "main": "index.js",
-    "author": "Mastr",
-    "dependencies": {
-        "discord.js": "12.5.3"
+    "version": "1.0.0",
+    "engines": {
+      "node": "14.15.4"
     }
-}
+  }
