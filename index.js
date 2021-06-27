@@ -6,6 +6,7 @@ const ytdl = require("ytdl-core");
 
 const prefix = "/";
 
+//Bot allumé et activité !
 Client.on("ready", () => {
     console.log("Bot Allumé !")
     Client.user.setStatus("dnd");
@@ -14,10 +15,12 @@ Client.on("ready", () => {
     }, 100)
 });
 
+//Bienvenue
 Client.on("guildMemberAdd", member => {
     member.guild.channels.cache.find(channel => channel.id === "857377306465271858").send(member.displayName + "** Bienvenue** sur le discord ! 💫\nNous somes actuellement **" + member.guild.memberCount + "** sur le Discord.");
 });
 
+//Ban
 Client.on("message", message => {
     if(message.member.hasPermission("ADMINISTRATOR")){
         if(message.content.startsWith(prefix + "ban")){
@@ -37,6 +40,7 @@ Client.on("message", message => {
             }
         }
     }
+    
     if(message.content.startsWith(prefix + "kick")){
         let mention = message.mentions.members.first();
 
@@ -55,6 +59,7 @@ Client.on("message", message => {
     }
 });
 
+//play (musique)
 Client.on("message", message => {
     if(message.content.startsWith(prefix + "play")){
         if(message.member.voice.channel){
@@ -86,7 +91,7 @@ Client.on("message", message => {
     }
 });
 
-
+//clear
 Client.on("message", message => {
     if(message.member.permissions.has("MANAGE_MESSAGES")){
         if(message.content.startsWith(prefix + "clear")){
@@ -110,28 +115,23 @@ Client.on("message", message => {
                 }
             }
         }
-        if(message.content.startsWith(prefix + "stats")){
-            let onlines = message.guild.members.cache.filter(({ presence }) => presence.status !== 'offline').size;
-            let totalmembers = message.guild.members.cache.size
-            let totalbots = message.guild.members.cache.filter(member => member.user.bot).size;
-            let totalrole = message.guild.roles.cache.get('846251270153961482').members.map(member => member.user.tag).length;
+    }
+});
 
-            const embed = new Discord.MessageEmbed()
-                .setColor('#FF0000')
-                .setTitle('Statistiques')
-                .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
-                .setDescription('**💫 Voici les statistiques ! 💫**')
-                .addFields(
-                    { name: '**Nombre de membres 👥 : **', value: totalmembers, inline: true },
-                    { name: '**Membres Connectés ✅ : **', value: onlines, inline: true },
-                    { name: '**Nombre de Bots sur le serveur 🤖 : **', value: totalbots, inline: true },
-                    { name: '**Nombre d\'arrivants ❤ : **', value: totalrole, inline: true },
-                )
-                .setTimestamp()
-                .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
+Client.on("message", message => {
+    if(message.author.bot) return;
+    if(message.content.startsWith(prefix + "stats")){
 
-            message.channel.send(embed);
-        }
+        const embed = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('Support Mastr !')
+            .setAuthor('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png')
+            .setDescription('**💫 Voici les Commandes du Bot ! 💫**')
+            .addFields('**📢 Modérations 📢**', '/ban (pour bannir un membre)', '/kick (pour kick un membre)', '/clear (nombre entre 1 - 100)(pour supprimer des messages)')
+            .setTimestamp()
+            .setFooter('Support Mastr', 'https://i.imgur.com/ZKJkwhr.png');
+
+        message.channel.send(embed);
     }
 });
 
@@ -152,6 +152,7 @@ Client.on("message", message => {
     }
     } 
 });
+
 
 
 
