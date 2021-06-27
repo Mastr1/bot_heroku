@@ -7,7 +7,11 @@ const ytdl = require("ytdl-core");
 const prefix = "/";
 
 Client.on("ready", () => {
-    console.log("Bot Allumé !");
+    console.log("Bot Allumé !")
+    Client.user.setStatus("dnd");
+    setTimeout(() => {
+        Client.user.setActivity(".gg/ZBB8ZAWxh7 💨", {type: "STREAMING"});
+    }, 100)
 });
 
 Client.on("guildMemberAdd", member => {
