@@ -131,6 +131,28 @@ Client.on("message", message => {
     }
 });
 
+Client.on("message", message => {
+    if(message.author.bot) return;
+    if(message.channel.type === 'dm') {
+        let ticketOpenned = false;
+        Client.guilds.cache.get('846250744436883496').channels.cache.filter(c=>c.name.startsWith('ticket-')).forEach(c=>{
+            if(c.topic === message.author.id) ticketOpenned = true;
+        })
+        if(ticketOpenned) {
+           const channelTicket = await Client.guilds.cache.get('846250744436883496').channels.cache.find(c=>c.topic===message.author.id)
+           channelTicket.send(`${message.author.tag}:\n${message.content?message.content:message.attachments.last().url:}`)
+        }
+        else {
+           const channelTicket = await Client.guilds.cache.get('846250744436883496').channels.create(`ticket-${message.author.username}`, {type:'text', reason: 'DM TICKET', topic: message.author.id, parent: Client.guilds.cache.get('846250744436883496').channels.cache.het('858509210370834432')})
+           channelTicket.send(`${message.author.tag}:\n${message.content?message.content:message.attachments.last().url:}`)
+        }
+    }
+    if(message.channel.name.startsWith("ticket-")) {
+        let user = await Client.user.fetch(message.channel.topic);
+        user.send(`${message.author.tag}:\n${message.content?message.content:message.attachments.last().url:}`)
+    }
+});
+
 
 
 
